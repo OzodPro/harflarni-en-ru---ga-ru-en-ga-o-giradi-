@@ -1,0 +1,28 @@
+word = input('soz kiriting: ')
+changed_word = ""
+lettters = {
+    'a': 'a', 'b': 'б', 'd': 'д', 'e': 'е', 'f': 'ф', 'g': 'г',
+    'h': 'ҳ', 'i': 'и', 'j': 'ж', 'k': 'к', 'l': 'л', 'm': 'м', 'n': 'н', 'o': 'о', 'p': 'п',
+    'q': 'қ', 'r': 'р', 's': 'с', 't': 'т', 'u': 'у',
+    'v': 'в', 'x': 'х', 'y': 'й', 'z': 'з', 'o`': 'ў', 'g`': 'ғ',
+    'sh': 'ш', 'ch': 'ч'
+}
+
+for i in range(len(word)):
+    if word[i] == 's' and word[i-1] == 'h':
+        changed_word+= lettters[word[i] + word[i+1]]
+    elif word[i] == 'h' and word[i-1] == 's':
+        continue
+    elif word[i] == 'c' and word[i-1] == 'h':
+        changed_word+= lettters[word[i] + word[i+1]]
+    elif word[i] == 'h' and word[i-1] == 'c':
+        continue
+    elif word[i] in lettters.keys():
+        changed_word+=lettters[word[i]]
+    elif word[i] in lettters.values():
+        for x, y in lettters.items():
+            if word[i] == y:
+                changed_word+= x
+    else:
+        changed_word+=word[i]
+print(changed_word)
